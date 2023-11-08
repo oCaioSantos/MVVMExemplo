@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/conteudoContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:text="Cotação de Moedas"
+            android:textAlignment="center"
+            android:textColor="#1E1E1E"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/camposMoedaContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titulo"
+            android:gravity="center">
+
+            <Spinner
+                android:id="@+id/campoMoedaOrigem"
+                android:layout_width="115dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="85dp"
+                android:background="@drawable/bg_campo_moeda"
+                android:entries="@array/moedas"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imagemSetaMoedas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@id/campoMoedaOrigem"
+                android:src="@drawable/baseline_arrow_forward_24" />
+
+            <Spinner
+                android:id="@+id/campoMoedaDestino"
+                android:layout_width="115dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="85dp"
+                android:layout_toEndOf="@id/imagemSetaMoedas"
+                android:background="@drawable/bg_campo_moeda"
+                android:entries="@array/moedas"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/resultadoLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/camposMoedaContainer"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Resultado"
+            android:textAlignment="center"
+            android:textColor="#1E1E1E"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/moedasContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resultadoLabel"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/moedaOrigem"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/bg_cotacao_moeda"
+                android:gravity="center"
+                android:text="1 USD"
+                android:textAlignment="center"
+                android:textColor="#1E1E1E"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imagemSetaCotacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@id/moedaOrigem"
+                android:src="@drawable/baseline_arrow_forward_24" />
+
+            <TextView
+                android:id="@+id/moedaDestino"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_toEndOf="@id/imagemSetaCotacao"
+                android:background="@drawable/bg_cotacao_moeda"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="4.91 BRL"
+                android:textColor="#1E1E1E"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/moedasContainer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#28a745"
+                android:text="07/11/2023"
+                android:textColor="@color/white" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="06/11/2023"
+                android:textColor="#1e1e1e" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="05/11/2023"
+                android:textColor="#1e1e1e" />
+        </com.google.android.material.chip.ChipGroup>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/mensagemErroContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Algo inesperado aconteceu"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+</RelativeLayout>
