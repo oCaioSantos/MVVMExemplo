@@ -2,7 +2,6 @@ package com.example.cotacaomoedas4adsc.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.core.view.isVisible
 import com.example.cotacaomoedas4adsc.databinding.ActivityMainBinding
 import com.example.cotacaomoedas4adsc.model.MainViewHolder

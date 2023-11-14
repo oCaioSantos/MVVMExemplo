@@ -68,23 +68,23 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/resultadoLabel"
+            android:id="@+id/nomeMoedaLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/camposMoedaContainer"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Resultado"
+            android:text="Moeda origem / Moeda destino"
             android:textAlignment="center"
             android:textColor="#1E1E1E"
-            android:textSize="24sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/moedasContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/resultadoLabel"
+            android:layout_below="@id/nomeMoedaLabel"
             android:layout_marginTop="10dp"
             android:gravity="center">
 
@@ -100,21 +100,50 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imagemSetaCotacao"
+            <LinearLayout
+                android:id="@+id/variacaoContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_toEndOf="@id/moedaOrigem"
-                android:src="@drawable/baseline_arrow_forward_24" />
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/variacaoAlta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.84"
+                    android:textColor="#28a745"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imagemSetaCotacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/baseline_arrow_forward_24" />
+
+                <TextView
+                    android:id="@+id/variacaoBaixa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.91"
+                    android:textColor="#E0131F"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/moedaDestino"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_toEndOf="@id/imagemSetaCotacao"
+                android:layout_toEndOf="@id/variacaoContainer"
                 android:background="@drawable/bg_cotacao_moeda"
                 android:gravity="center"
                 android:padding="20dp"
