@@ -94,7 +94,7 @@
                 android:layout_height="120dp"
                 android:background="@drawable/bg_cotacao_moeda"
                 android:gravity="center"
-                android:text="1 USD"
+                android:text="Selecione"
                 android:textAlignment="center"
                 android:textColor="#1E1E1E"
                 android:textSize="24sp"
@@ -115,7 +115,7 @@
                     android:id="@+id/variacaoAlta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4.84"
+                    android:text="0.00"
                     android:textColor="#28a745"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -132,7 +132,7 @@
                     android:id="@+id/variacaoBaixa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4.91"
+                    android:text="0.00"
                     android:textColor="#E0131F"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -147,7 +147,7 @@
                 android:background="@drawable/bg_cotacao_moeda"
                 android:gravity="center"
                 android:padding="20dp"
-                android:text="4.91 BRL"
+                android:text="SELECIONE"
                 android:textColor="#1E1E1E"
                 android:textSize="24sp"
                 android:textStyle="bold" />

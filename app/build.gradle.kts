@@ -53,7 +53,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
 
-
     val retrofitVersion = "2.9.0"
     implementation("com.google.code.gson:gson:$retrofitVersion")
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
