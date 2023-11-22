@@ -153,33 +153,6 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <com.google.android.material.chip.ChipGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/moedasContainer"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#28a745"
-                android:text="07/11/2023"
-                android:textColor="@color/white" />
-
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="06/11/2023"
-                android:textColor="#1e1e1e" />
-
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="05/11/2023"
-                android:textColor="#1e1e1e" />
-        </com.google.android.material.chip.ChipGroup>
-
     </RelativeLayout>
 
     <ProgressBar

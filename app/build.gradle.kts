@@ -57,4 +57,8 @@ dependencies {
     implementation("com.google.code.gson:gson:$retrofitVersion")
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
+    implementation("io.insert-koin:koin-android:3.2.0")
+
+
 }

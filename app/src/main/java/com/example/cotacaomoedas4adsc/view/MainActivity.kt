@@ -9,10 +9,12 @@ import android.widget.Spinner
 import androidx.core.view.isNotEmpty
 import androidx.core.view.isVisible
 import com.example.cotacaomoedas4adsc.databinding.ActivityMainBinding
+import com.example.cotacaomoedas4adsc.di.appModule
 import com.example.cotacaomoedas4adsc.model.MainViewHolder
-import com.example.cotacaomoedas4adsc.repository.local.LocalCotacaoRepository
-import com.example.cotacaomoedas4adsc.repository.remote.CotacaoRepository
 import com.example.cotacaomoedas4adsc.viewmodel.MainViewModel
+import org.koin.android.ext.android.inject
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,15 +22,15 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val viewModel by lazy {
-        MainViewModel(
-            CotacaoRepository()
-        )
-    }
+    private val viewModel: MainViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        startKoin {
+            androidContext(this@MainActivity)
+            modules(appModule)
+        }
         configurarObservers()
     }
 
@@ -71,6 +73,18 @@ class MainActivity : AppCompatActivity() {
         with(binding.campoMoedaDestino) { configurarListenerItemSelecionado(this) }
     }
 
+    private fun formatarMoedaOrigem(
+        moedaDestino: String
+    ): String {
+        return "1 $moedaDestino"
+    }
+
+    private fun formatarMoedaDestino(
+        valor: String, moedaOrigem: String
+    ): String {
+        return "$valor $moedaOrigem"
+    }
+
     private fun configurarObservers() {
         configurarSpinnersListeners()
         viewModel.state.observe(this) { view ->
@@ -85,10 +99,15 @@ class MainActivity : AppCompatActivity() {
                     binding.conteudoContainer.isVisible = true
                     binding.mensagemErroContainer.isVisible = false
                     binding.progressBar.isVisible = false
-
-                    binding.nomeMoedaLabel.text = view.data.nomeMoeda
-                    binding.variacaoAlta.text = view.data.alta
-                    binding.variacaoBaixa.text = view.data.baixa
+                    with(view.data) {
+                        binding.nomeMoedaLabel.text = nomeMoeda
+                        binding.variacaoAlta.text = alta
+                        binding.variacaoBaixa.text = baixa
+                        binding.moedaOrigem.text =
+                            formatarMoedaOrigem(moedaOrigem)
+                        binding.moedaDestino.text =
+                            formatarMoedaDestino(precoCompra, moedaDestino)
+                    }
                 }
 
                 is MainViewHolder.Error -> {
