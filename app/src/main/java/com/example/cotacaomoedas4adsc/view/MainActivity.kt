@@ -10,6 +10,8 @@ import androidx.core.view.isNotEmpty
 import androidx.core.view.isVisible
 import com.example.cotacaomoedas4adsc.databinding.ActivityMainBinding
 import com.example.cotacaomoedas4adsc.model.MainViewHolder
+import com.example.cotacaomoedas4adsc.repository.local.LocalCotacaoRepository
+import com.example.cotacaomoedas4adsc.repository.remote.CotacaoRepository
 import com.example.cotacaomoedas4adsc.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +21,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val viewModel by lazy {
-        MainViewModel()
+        MainViewModel(
+            CotacaoRepository()
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
